@@ -1,11 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 
 	var (
-		board string
+		board strings.Builder
 		size  int
 	)
 	fmt.Println("Введите число")
@@ -14,12 +17,12 @@ func main() {
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
 			if (i+j)%2 != 0 {
-				board += "#"
+				board.WriteString("#")
 			} else {
-				board += " "
+				board.WriteString(" ")
 			}
 		}
-		board += "\n"
+		board.WriteString("\n")
 	}
-	fmt.Println(board)
+	fmt.Println(board.String())
 }
